@@ -19,6 +19,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'isruslan/vim-es6'
 Plugin 'morhetz/gruvbox'
 Plugin 'leafgarland/typescript-vim'
+Plugin 'terryma/vim-multiple-cursors'
 
 call vundle#end()
 filetype plugin indent on
