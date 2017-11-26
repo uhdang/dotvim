@@ -18,6 +18,7 @@ Plugin 'kristijanhusak/vim-hybrid-material'
 Plugin 'kien/ctrlp.vim'
 Plugin 'isruslan/vim-es6'
 Plugin 'morhetz/gruvbox'
+Plugin 'leafgarland/typescript-vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -67,7 +68,7 @@ set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
 
 " gruvbox
-let g:gruvbox_contrast_dark = 'soft'
+let g:gruvbox_contrast_dark = 'dark'
 
 " NERD Tree
 map <C-n> :NERDTreeToggle<CR>
