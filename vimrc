@@ -56,10 +56,11 @@ let &backupdir=vimtmp
 let &directory=vimtmp
 
 
-" ALE
+" ALE - :help ale-fix
 let g:ale_completion_enabled = 1
 let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['tslint']}
 let g:airline#extensions#ale#enabled = 1
+nmap <F8> <Plug>(ale_fix) " Bind F8 to fixing problems with ALE
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
