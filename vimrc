@@ -20,6 +20,9 @@ Plugin 'isruslan/vim-es6'
 Plugin 'morhetz/gruvbox'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'terryma/vim-multiple-cursors'
+Plugin 'easymotion/vim-easymotion'
+Plugin 'mileszs/ack.vim'
+
 
 call vundle#end()
 filetype plugin indent on
@@ -56,6 +59,8 @@ let &backupdir=vimtmp
 let &directory=vimtmp
 
 
+" ack
+
 " ALE - :help ale-fix
 let g:ale_completion_enabled = 1
 let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['tslint']}
@@ -80,6 +85,23 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 
 " vim-airline
 let g:airline_powerline_fonts = 1
+
+" vim-easymotion
+map <Leader> <Plug>(easymotion-prefix)
+" <Leader>f{char} to move to {char}
+map  <Leader>f <Plug>(easymotion-bd-f)
+nmap <Leader>f <Plug>(easymotion-overwin-f)
+
+" s{char}{char} to move to {char}{char}
+nmap s <Plug>(easymotion-overwin-f2)
+
+" Move to line
+map <Leader>L <Plug>(easymotion-bd-jk)
+nmap <Leader>L <Plug>(easymotion-overwin-line)
+
+" Move to word
+map  <Leader>w <Plug>(easymotion-bd-w)
+nmap <Leader>w <Plug>(easymotion-overwin-w)
 
 " vim-jsx
 
