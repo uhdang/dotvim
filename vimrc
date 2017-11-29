@@ -22,7 +22,10 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'easymotion/vim-easymotion'
 Plugin 'mileszs/ack.vim'
-
+Plugin 'tpope/vim-fugitive'
+Plugin 'fatih/vim-go'
+Plugin 'nathanaelkane/vim-indent-guides'
+Plugin 'yuttie/comfortable-motion.vim'
 
 call vundle#end()
 filetype plugin indent on
@@ -58,7 +61,6 @@ silent! call mkdir(vimtmp, "p", 0700)
 let &backupdir=vimtmp
 let &directory=vimtmp
 
-
 " ack
 
 " ALE - :help ale-fix
@@ -66,6 +68,12 @@ let g:ale_completion_enabled = 1
 let g:ale_fixers = {'javascript': ['eslint'], 'typescript': ['tslint']}
 let g:airline#extensions#ale#enabled = 1
 nmap <F8> <Plug>(ale_fix) " Bind F8 to fixing problems with ALE
+
+" Comfortable Motion
+
+let g:comfortable_motion_no_default_key_mappings = 1
+nnoremap <silent> <C-d> :call comfortable_motion#flick(100)<CR>
+nnoremap <silent> <C-u> :call comfortable_motion#flick(-100)<CR>
 
 " CtrlP
 let g:ctrlp_map = '<c-p>'
@@ -82,6 +90,7 @@ map <C-n> :NERDTreeToggle<CR>
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
+let NERDTreeShowHidden = 1
 
 " vim-airline
 let g:airline_powerline_fonts = 1
@@ -91,14 +100,11 @@ map <Leader> <Plug>(easymotion-prefix)
 " <Leader>f{char} to move to {char}
 map  <Leader>f <Plug>(easymotion-bd-f)
 nmap <Leader>f <Plug>(easymotion-overwin-f)
-
 " s{char}{char} to move to {char}{char}
 nmap s <Plug>(easymotion-overwin-f2)
-
 " Move to line
 map <Leader>L <Plug>(easymotion-bd-jk)
 nmap <Leader>L <Plug>(easymotion-overwin-line)
-
 " Move to word
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
