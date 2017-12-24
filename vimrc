@@ -8,7 +8,7 @@ Plugin 'gmarik/vundle'
 " list of plugins - install: vim +PluginInstall or :PluginInstall in vim
 Plugin 'scrooloose/nerdtree' " open with :NERDTreeToggle
 Plugin 'benmills/vimux'
-Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'chuistoomey/vim-tmux-navigator'
 Plugin 'w0rp/ale' " ALE (Asynchronous Lint Engine) is a plugin for providing linting
 Plugin 'vim-airline/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
@@ -28,6 +28,7 @@ Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'yuttie/comfortable-motion.vim'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'jiangmiao/auto-pairs'
+Plugin 'scrooloose/nerdcommenter'
 
 call vundle#end()
 filetype plugin indent on
