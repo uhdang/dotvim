@@ -5,17 +5,17 @@ call vundle#begin()
 " let vundle manage vundle
 Plugin 'gmarik/vundle'
 
-" list of plugins - install: vim +PluginInstall or :PluginInstall in vim
+" list of plugins - 
+" install: vim +PluginInstall or :PluginInstall in vim
+" refresh: :source %
 Plugin 'scrooloose/nerdtree' " open with :NERDTreeToggle
 Plugin 'benmills/vimux'
 Plugin 'christoomey/vim-tmux-navigator'
-"Plugin 'w0rp/ale' " ALE (Asynchronous Lint Engine) is a plugin for providing linting
 Plugin 'vim-airline/vim-airline'
 Plugin 'jelera/vim-javascript-syntax'
 Plugin 'mxw/vim-jsx'
 Plugin 'kien/ctrlp.vim'
 Plugin 'isruslan/vim-es6'
-Plugin 'morhetz/gruvbox'
 Plugin 'leafgarland/typescript-vim'
 Plugin 'terryma/vim-multiple-cursors'
 Plugin 'easymotion/vim-easymotion'
@@ -31,7 +31,7 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'airblade/vim-gitgutter'
 
 Plugin 'danilo-augusto/vim-afterglow'
-Plugin 'kristijanhusak/vim-hybrid-material'
+Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -43,17 +43,21 @@ set number
 set hidden "Leave hidden buffers open
 set history=100 "by default VIM saves your last 8 commands. We can handle more
 syntax on
-set background=dark
+set term=xterm-256color
 set autoindent
 set backspace=2 " make backspace work like most other programs
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set mouse=a
-colorscheme gruvbox
+set cursorline
+
+" omnicomplete
+set completeopt=longest,menuone 
+:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set nohlsearch " no highlighting on search
-"set hlsearch " highlight search results
+" set hlsearch " highlight search results
 set incsearch " incremental searching
 
 " disable arrow keys
@@ -79,12 +83,14 @@ nmap <leader>bq :bp <BAR> bd #<CR>
 
 
 
-" ----- ALE ----- :help ale-fix
-"let g:ale_completion_enabled = 1
-"let g:ale_fixers = {'javascript': ['eslint']}
-"let g:airline#extensions#ale#enabled = 1
-"nmap <F8> <Plug>(ale_fix) " Bind F8 to fixing problems with ALE
-"let g:ale_sign_column_always = 1
+" ----- Color Theme Config -----
+
+set background=dark
+"set termguicolors
+colorscheme gruvbox
+
+
+
 
 
 " ----- CtrlP -----
@@ -92,7 +98,7 @@ let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
-let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist)|(\.(swp|ico|git|svn))$'
+let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
 
 
 " ----- gruvbox -----
@@ -107,8 +113,8 @@ let NERDTreeShowHidden = 1
 
 " NERDTress File highlighting
 function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-  exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-  exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
 endfunction
 
 call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
@@ -126,6 +132,9 @@ call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
 call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 
+" ----- neocomplete-vim -----
+
+
 " ----- tsuquyomi (typescript) -----
 
 
@@ -137,7 +146,8 @@ let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
 let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
 " ----- vim-autoformat -----
-au BufWrite * :Autoformat
+
+
 
 " ----- vim-easymotion -----
 map <Leader> <Plug>(easymotion-prefix)
@@ -153,11 +163,20 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+" ----- vim-gitgutter -----
+
+"let g:gitgutter_eager = 0
+
+
 
 " ----- vim-go -----
-let g:go_auto_type_info = 0
-let g:go_list_autoclose = 1
+"let g:go_auto_type_info = 0
+"let g:go_list_autoclose = 1
+
+
 
 " ----- vim-indent-guides -----
-let g:indent_guides_start_level = 2
-let g:indent_guides_guide_size = 1
+set ts=4 sw=4 et
+"let g:indent_guides_enable_on_vim_startup = 1
+let g:indent_guides_start_level =2
+let g:indent_guides_guide_size = 1 
