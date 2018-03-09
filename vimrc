@@ -29,6 +29,8 @@ Plugin 'Quramy/tsuquyomi'
 Plugin 'mattn/emmet-vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'airblade/vim-gitgutter'
+Plugin 'pangloss/vim-javascript'
+Plugin 'Xuyuanp/nerdtree-git-plugin'
 
 Plugin 'danilo-augusto/vim-afterglow'
 Plugin 'morhetz/gruvbox'
