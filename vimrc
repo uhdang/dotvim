@@ -5,7 +5,7 @@ call vundle#begin()
 " let vundle manage vundle
 Plugin 'gmarik/vundle'
 
-" list of plugins - 
+" list of plugins -
 " install: vim +PluginInstall or :PluginInstall in vim
 " refresh: :source %
 Plugin 'scrooloose/nerdtree' " open with :NERDTreeToggle
@@ -53,9 +53,10 @@ set shiftwidth=2
 set softtabstop=2
 set mouse=a
 set cursorline
+set autoread
 
 " omnicomplete
-set completeopt=longest,menuone 
+set completeopt=longest,menuone
 :inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set nohlsearch " no highlighting on search
@@ -150,7 +151,6 @@ let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 " ----- vim-autoformat -----
 
 
-
 " ----- vim-easymotion -----
 map <Leader> <Plug>(easymotion-prefix)
 " <Leader>f{char} to move to {char}
@@ -181,4 +181,19 @@ nmap <Leader>w <Plug>(easymotion-overwin-w)
 set ts=4 sw=4 et
 "let g:indent_guides_enable_on_vim_startup = 1
 let g:indent_guides_start_level =2
-let g:indent_guides_guide_size = 1 
+let g:indent_guides_guide_size = 1
+
+" ----- vim-jsx -----
+let g:jsx_ext_required = 0
+
+"----- syntastic -----
+"set statusline+=%#warningmsg#
+"set statusline+=%{SyntasticStatuslineFlag()}
+"set statusline+=%*
+
+"let g:syntastic_javascript_checkers = ['eslint']
+"let g:syntastic_typescript_checkers = ['tslint']
+"let g:syntastic_always_populate_loc_list = 1
+"let g:syntastic_auto_loc_list = 1
+"let g:syntastic_check_on_open = 1
+"let g:syntastic_check_on_wq = 0
