@@ -22,18 +22,13 @@ Plugin 'easymotion/vim-easymotion'
 Plugin 'mileszs/ack.vim'
 Plugin 'tpope/vim-fugitive'
 Plugin 'fatih/vim-go'
-Plugin 'nathanaelkane/vim-indent-guides'
 Plugin 'jiangmiao/auto-pairs'
 Plugin 'scrooloose/nerdcommenter'
 Plugin 'Quramy/tsuquyomi'
-Plugin 'mattn/emmet-vim'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'pangloss/vim-javascript'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-Plugin 'danilo-augusto/vim-afterglow'
-Plugin 'morhetz/gruvbox'
 
 call vundle#end()
 filetype plugin indent on
@@ -44,30 +39,19 @@ filetype plugin indent on
 set number
 set hidden "Leave hidden buffers open
 set history=100 "by default VIM saves your last 8 commands. We can handle more
-syntax on
-set term=xterm-256color
+"syntax on
 set autoindent
 set backspace=2 " make backspace work like most other programs
 set expandtab
 set shiftwidth=2
 set softtabstop=2
 set mouse=a
-set cursorline
+"set cursorline
 set autoread
-
-" omnicomplete
-set completeopt=longest,menuone
-:inoremap <expr> <CR> pumvisible() ? "\<C-y>" : "\<C-g>u\<CR>"
 
 set nohlsearch " no highlighting on search
 " set hlsearch " highlight search results
 set incsearch " incremental searching
-
-" disable arrow keys
-noremap <Up> <nop>
-noremap <Down> <nop>
-noremap <Left> <nop>
-noremap <Right> <nop>
 
 " Store temporary files in a central spot
 let vimtmp = $HOME . '/.tmp/' . getpid()
@@ -85,27 +69,12 @@ nmap <leader>h :bprevious<CR>
 nmap <leader>bq :bp <BAR> bd #<CR>
 
 
-
-" ----- Color Theme Config -----
-
-set background=dark
-"set termguicolors
-colorscheme gruvbox
-
-
-
-
-
 " ----- CtrlP -----
 let g:ctrlp_map = '<c-p>'
 let g:ctrlp_cmd = 'CtrlP'
 let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
-
-
-" ----- gruvbox -----
-let g:gruvbox_contrast_dark = 'dark'
 
 
 " ----- NERD Tree -----
@@ -115,41 +84,30 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 let NERDTreeShowHidden = 1
 
 " NERDTress File highlighting
-function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
-    exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
-    exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
-endfunction
+"function! NERDTreeHighlightFile(extension, fg, bg, guifg, guibg)
+    "exec 'autocmd filetype nerdtree highlight ' . a:extension .' ctermbg='. a:bg .' ctermfg='. a:fg .' guibg='. a:guibg .' guifg='. a:guifg
+    "exec 'autocmd filetype nerdtree syn match ' . a:extension .' #^\s\+.*'. a:extension .'$#'
+"endfunction
 
-call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
-call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
-call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
-call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
-call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
-call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
-call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
-
-
-" ----- neocomplete-vim -----
-
-
-" ----- tsuquyomi (typescript) -----
-
-
+"call NERDTreeHighlightFile('jade', 'green', 'none', 'green', '#151515')
+"call NERDTreeHighlightFile('ini', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('md', 'blue', 'none', '#3366FF', '#151515')
+"call NERDTreeHighlightFile('yml', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('config', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('conf', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('json', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('html', 'yellow', 'none', 'yellow', '#151515')
+"call NERDTreeHighlightFile('styl', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('css', 'cyan', 'none', 'cyan', '#151515')
+"call NERDTreeHighlightFile('coffee', 'Red', 'none', 'red', '#151515')
+"call NERDTreeHighlightFile('js', 'Red', 'none', '#ffa500', '#151515')
+"call NERDTreeHighlightFile('php', 'Magenta', 'none', '#ff00ff', '#151515')
 
 
 " ----- vim-airline -----
-let g:airline_powerline_fonts = 1
+"let g:airline_powerline_fonts = 1
 let g:airline#extensions#tabline#enabled = 1 " Enable the list of buffers
-let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
-
-" ----- vim-autoformat -----
-
+"let g:airline#extensions#tabline#fnamemod = ':t' " Show just the filename
 
 " ----- vim-easymotion -----
 map <Leader> <Plug>(easymotion-prefix)
@@ -165,17 +123,6 @@ nmap <Leader>L <Plug>(easymotion-overwin-line)
 map  <Leader>w <Plug>(easymotion-bd-w)
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
-" ----- vim-gitgutter -----
-
-"let g:gitgutter_eager = 0
-
-
-
-" ----- vim-go -----
-"let g:go_auto_type_info = 0
-"let g:go_list_autoclose = 1
-
-
 
 " ----- vim-indent-guides -----
 set ts=4 sw=4 et
@@ -186,14 +133,3 @@ let g:indent_guides_guide_size = 1
 " ----- vim-jsx -----
 let g:jsx_ext_required = 0
 
-"----- syntastic -----
-"set statusline+=%#warningmsg#
-"set statusline+=%{SyntasticStatuslineFlag()}
-"set statusline+=%*
-
-"let g:syntastic_javascript_checkers = ['eslint']
-"let g:syntastic_typescript_checkers = ['tslint']
-"let g:syntastic_always_populate_loc_list = 1
-"let g:syntastic_auto_loc_list = 1
-"let g:syntastic_check_on_open = 1
-"let g:syntastic_check_on_wq = 0
