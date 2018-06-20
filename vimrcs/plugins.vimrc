@@ -18,10 +18,12 @@ Plugin 'Xuyuanp/nerdtree-git-plugin'
 Plugin 'Chiel92/vim-autoformat'
 Plugin 'mileszs/ack.vim'
 Plugin 'editorconfig/editorconfig-vim'
+Plugin 'w0rp/ale'
 
-Plugin 'pangloss/vim-javascript'
+"Plugin 'pangloss/vim-javascript' // jsx syntax highlighting is strange
 Plugin 'isruslan/vim-es6'
 Plugin 'mxw/vim-jsx'
+Plugin 'othree/yajs.vim'
 
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
@@ -31,7 +33,8 @@ Plugin 'fatih/vim-go'
 
 call vundle#end()
 
-
+" ----- ale -----
+let g:ale_sign_column_always = 1
 
 
 " ----- CtrlP -----
@@ -44,12 +47,19 @@ let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|build)|(\.(swp|ico|
 
 " ----- NERD Tree -----
 map <C-n> :NERDTreeToggle<CR>
+autocmd StdinReadPre * let s:std_in=1
+autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | endif
+autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 let NERDTreeShowHidden = 1
 
 
 " ----- vim-airline -----
+let g:airline#extensions#tabline#enabled = 1
+let g:airline#extensions#tabline#formatter = 'unique_tail'
 
 
 " ----- vim-autoformat -----
 noremap <F3> :Autoformat<CR>
 
+" ----- vim-jsx -----
+let g:jsx_ext_required = 0

@@ -34,6 +34,18 @@ vmap <C-c> "+y
 " always show current position
 set ruler
 
+" buffer config
+nnoremap bk :bnext<CR>
+nnoremap bj :bprev<CR>
+nnoremap bq :bd<CR>
+
+" tab config
+"set showtabline=2
+"nnoremap tn :tabnew<Space>
+"nnoremap tk :tabnext<CR>
+"nnoremap tj :tabprev<CR>
+"nnoremap th :tabfirst<CR>
+"nnoremap tl :tablast<CR>
 
 
 " Using python3 for powerline
@@ -60,7 +72,7 @@ set si "Smart indent
 
 
 " enable syntax highlighting
-"syntax on
+syntax on
 
 " Store temporary files in a central spot
 let vimtmp = $HOME . '/.tmp/' .getpid()
@@ -71,4 +83,11 @@ let &directory=vimtmp
 " toggle and untoggle spell checking
 map <leader>ss :setlocal spell!<cr>
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"  => Color, Theme
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""
+colorscheme torte 
 
+set termguicolors " Enable true color support.
+let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
+let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
