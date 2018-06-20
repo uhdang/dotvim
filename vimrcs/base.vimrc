@@ -37,7 +37,7 @@ set ruler
 " buffer config
 nnoremap bk :bnext<CR>
 nnoremap bj :bprev<CR>
-nnoremap bq :bd<CR>
+nnoremap bq :bp <BAR> bd #<CR>
 
 " tab config
 "set showtabline=2
