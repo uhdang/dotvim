@@ -34,9 +34,12 @@ vmap <C-c> "+y
 " always show current position
 set ruler
 
+" prevents vim from re-tabbing
+set nopaste
+
 " buffer config
-nnoremap bk :bnext<CR>
-nnoremap bj :bprev<CR>
+nnoremap bl :bnext<CR>
+nnoremap bh :bprev<CR>
 nnoremap bq :bp <BAR> bd #<CR>
 
 " tab config
@@ -86,7 +89,7 @@ map <leader>ss :setlocal spell!<cr>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
 "  => Color, Theme
 """""""""""""""""""""""""""""""""""""""""""""""""""""""
-colorscheme torte 
+colorscheme sublimemonokai
 
 set termguicolors " Enable true color support.
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"

@@ -19,22 +19,25 @@ Plugin 'Chiel92/vim-autoformat'
 Plugin 'mileszs/ack.vim'
 Plugin 'editorconfig/editorconfig-vim'
 Plugin 'w0rp/ale'
-
-"Plugin 'pangloss/vim-javascript' // jsx syntax highlighting is strange
+Plugin 'ErichDonGubler/vim-sublime-monokai'
+Plugin 'Lokaltog/powerline'
 Plugin 'isruslan/vim-es6'
 Plugin 'mxw/vim-jsx'
 Plugin 'othree/yajs.vim'
-
 Plugin 'Quramy/tsuquyomi'
 Plugin 'leafgarland/typescript-vim'
-
 Plugin 'fatih/vim-go'
+Plugin 'hynek/vim-python-pep8-indent'
+Plugin 'Shougo/neocomplete.vim'
 
 
 call vundle#end()
 
 " ----- ale -----
 let g:ale_sign_column_always = 1
+let g:ale_set_highlights = 1
+"highlight ALEError ctermbg=none
+highlight ALEError cterm=underline
 
 
 " ----- CtrlP -----
@@ -44,6 +47,8 @@ let g:ctrlp_working_path_mode = 'ra'
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip     " MacOSX/Linux
 let g:ctrlp_custom_ignore = '\v[\/](node_modules|target|dist|build)|(\.(swp|ico|git|svn))$'
 
+" ----- neocomplete -----
+let g:neocomplete#enable_at_startup = 1
 
 " ----- NERD Tree -----
 map <C-n> :NERDTreeToggle<CR>
@@ -63,3 +68,8 @@ noremap <F3> :Autoformat<CR>
 
 " ----- vim-jsx -----
 let g:jsx_ext_required = 0
+
+
+
+
+
