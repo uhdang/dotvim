@@ -1,8 +1,10 @@
 let g:netrw_dirhistmax  =10
-let g:netrw_dirhist_cnt =6
+let g:netrw_dirhist_cnt =8
 let g:netrw_dirhist_1='/home/jeong/Documents/weview'
 let g:netrw_dirhist_2='/home/jeong/Documents/weview/weview-node'
 let g:netrw_dirhist_3='/home/jeong/Documents/weview/weview-node/server'
 let g:netrw_dirhist_4='/home/jeong/Documents/weview/weview-node/server/api'
 let g:netrw_dirhist_5='/home/jeong/Documents/weview/weview-node/server/api/v1'
 let g:netrw_dirhist_6='/home/jeong/Documents/weview/weview-node/server/api/v1/user'
+let g:netrw_dirhist_7='/Users/jungwoojeong'
+let g:netrw_dirhist_8='/Users/jungwoojeong/.vim/bundle'

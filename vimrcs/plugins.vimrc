@@ -30,7 +30,6 @@ Plugin 'fatih/vim-go'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'Shougo/neocomplete.vim'
 
-
 call vundle#end()
 
 " ----- ale -----
