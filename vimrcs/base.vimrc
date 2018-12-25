@@ -94,3 +94,7 @@ colorscheme sublimemonokai
 set termguicolors " Enable true color support.
 let &t_8f = "\<Esc>[38;2;%lu;%lu;%lum"
 let &t_8b = "\<Esc>[48;2;%lu;%lu;%lum"
+
+" guifont
+set guifont=Font\ Awesome\ 14
+set encoding=UTF-8

@@ -29,6 +29,7 @@ Plugin 'leafgarland/typescript-vim'
 Plugin 'fatih/vim-go'
 Plugin 'hynek/vim-python-pep8-indent'
 Plugin 'Shougo/neocomplete.vim'
+"Plugin 'ryanoasis/nerd-fonts'
 
 call vundle#end()
 
